@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,9 +7,47 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include android:id="@+id/idAppBarMain"
-        layout="@layout/app_bar_main"/>
+    <include
+        android:id="@+id/idAppBarMain"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        layout="@layout/app_bar_main" />
 
+    <FrameLayout
+        android:id="@+id/bottomFragment"
+        app:layout_constraintTop_toBottomOf="@id/idAppBarMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
+        app:elevation="0dp"
+        app:itemIconTint="@color/icon_text_color_stage"
+        app:itemRippleColor="@color/rippleColor"
+        app:itemTextColor="@color/shape_fill_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_menu" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/addFabBtn"
+        android:layout_width="60dp"
+        android:background="@drawable/bg_circle"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottomNavigation"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        android:backgroundTint="@color/sColor"
+        android:src="@drawable/ic_add" />
+</androidx.constraintlayout.widget.ConstraintLayout>
