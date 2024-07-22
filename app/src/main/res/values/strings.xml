@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Alert Me</string>
+    <string name="timer">Timer</string>
+    <string name="alarm_clock">Alarm</string>
+    <string name="clock">Clock</string>
+    <string name="stopwatch">Stopwatch</string>
+</resources>
