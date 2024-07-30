@@ -1,20 +1,17 @@
 package com.cagdasmarangoz.alertme
 
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.cagdasmarangoz.alertme.fragments.AlarmClockFragment
+import com.cagdasmarangoz.alertme.fragments.alarm.AlarmClockFragment
 import com.cagdasmarangoz.alertme.fragments.ClockFragment
 import com.cagdasmarangoz.alertme.fragments.StopwatchFragment
 import com.cagdasmarangoz.alertme.fragments.TimerFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

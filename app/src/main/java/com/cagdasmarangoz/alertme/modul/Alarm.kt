@@ -13,12 +13,12 @@ data class Alarm(
     val time: String = "$hour:$minute"
 }
 
-enum class Days {
-    MONDAY,
-    TUESDAY,
-    WEDNESDAY,
-    THURSDAY,
-    FRIDAY,
-    SATURDAY,
-    SUNDAY
+enum class Days(val value: String) {
+    MONDAY("MONDAY"),
+    TUESDAY("TUESDAY"),
+    WEDNESDAY("WEDNESDAY"),
+    THURSDAY("THURSDAY"),
+    FRIDAY("FRIDAY"),
+    SATURDAY("SATURDAY"),
+    SUNDAY("SUNDAY")
 }

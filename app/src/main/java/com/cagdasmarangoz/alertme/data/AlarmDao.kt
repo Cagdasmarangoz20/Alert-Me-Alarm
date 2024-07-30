@@ -2,6 +2,8 @@ package com.cagdasmarangoz.alertme.data
 
 import androidx.room.Dao
 import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import androidx.room.Upsert
@@ -15,19 +17,11 @@ interface AlarmDao {
     suspend fun deleteAlarm(alarmData: AlarmData)
 
     @Query("SELECT * FROM AlarmData ORDER BY title ASC")
-   suspend fun getAlarmTitle(): List<AlarmData>
+   fun getAlarmList(): List<AlarmData>
 
-    @Query("SELECT * FROM AlarmData ORDER BY hour ASC")
-    suspend fun getAlarmHour(): List<AlarmData>
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(alarmData: AlarmData)
 
-    @Query("SELECT * FROM AlarmData ORDER BY minute ASC")
-    suspend fun getAlarmMinute(): List<AlarmData>
-
-    @Query("SELECT * FROM AlarmData ORDER BY isActive ASC")
-    suspend fun getAlarmIsActive(): List<AlarmData>
-
-    @Query("SELECT * FROM AlarmData ORDER BY dayList ASC")
-    suspend fun getAlarmDayList(): List<AlarmData>
 
 
 

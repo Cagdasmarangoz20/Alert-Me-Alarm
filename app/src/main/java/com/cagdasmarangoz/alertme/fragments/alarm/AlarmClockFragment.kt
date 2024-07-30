@@ -1,4 +1,4 @@
-package com.cagdasmarangoz.alertme.fragments
+package com.cagdasmarangoz.alertme.fragments.alarm
 
 import android.app.NotificationManager
 import android.os.Build
@@ -7,20 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.cagdasmarangoz.alertme.R
 import com.cagdasmarangoz.alertme.databinding.FragmentAlarmClockBinding
 import com.cagdasmarangoz.alertme.modul.Alarm
-import com.cagdasmarangoz.alertme.modul.Days
 import com.cagdasmarangoz.alertme.modul.RecyclerViewAlramAdapter
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class AlarmClockFragment : Fragment() {
     private lateinit var binding: FragmentAlarmClockBinding
-    private var recyclerView: RecyclerView? = null
     private val recyclerViewMovieAdapter: RecyclerViewAlramAdapter by lazy {
         RecyclerViewAlramAdapter(
             onItemClick = { alarm ->
@@ -28,56 +30,38 @@ class AlarmClockFragment : Fragment() {
             }
         )
     }
-    private var alarmList = mutableListOf<Alarm>(
-        Alarm(
-            title = "Deneme",
-            hour = 1,
-            minute = 1,
-            isActive = true,
-            dayList = listOf(Days.FRIDAY)
-        ),
-        Alarm(
-            title = "12343567",
-            hour = 1,
-            minute = 1,
-            isActive = true,
-            dayList = listOf(Days.FRIDAY)
-        ),
-        Alarm(
-            title = "fasfas",
-            hour = 1,
-            minute = 1,
-            isActive = true,
-            dayList = listOf(Days.FRIDAY)
-        ),
-    )
+
+    private val viewModel by viewModels<AlarmViewModel>()
+
+
     private lateinit var picker: MaterialTimePicker
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = FragmentAlarmClockBinding.inflate(layoutInflater)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_alarm_clock, container, false)
+        binding = FragmentAlarmClockBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById<View>(R.id.idRecyclerAlarm) as RecyclerView
-        val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, 2)
-        recyclerView!!.layoutManager = layoutManager
-        recyclerView!!.adapter = recyclerViewMovieAdapter
-        recyclerViewMovieAdapter.submitList(alarmList)
+        binding.idRecyclerAlarm.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = recyclerViewMovieAdapter
+        }
         createNotificationChannel()
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.alarmList.collect { list ->
+                    recyclerViewMovieAdapter.submitList(list.map { it.toAlarm() })
+                }
+            }
+        }
     }
+
 
     private fun showTimePicker(alarm: Alarm) {
         picker = MaterialTimePicker.Builder()
@@ -87,21 +71,11 @@ class AlarmClockFragment : Fragment() {
             .setTitleText("Select Alarm Time")
             .build()
         picker.addOnPositiveButtonClickListener {
-            if (picker.hour > 12) {
-                val newList = alarmList.map {
-                    if (it == alarm) {
-                        it.copy(
-                            hour = picker.hour,
-                            minute = picker.minute
-                        )
-                    } else {
-                        it
-                    }
-                }
-                recyclerViewMovieAdapter.submitList(newList)
-            }
+            viewModel.updateAlarm(alarm)
+//
         }
         picker.show(childFragmentManager, null)
+
 
     }
 
