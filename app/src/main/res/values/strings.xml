@@ -4,6 +4,126 @@
     <string name="alarm_clock">Alarm</string>
     <string name="clock">Clock</string>
     <string name="stopwatch">Stopwatch</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="pref_alarm_delay_time">
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+    </string-array>
+    <string-array name="pref_alarm_delay_time_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
+    <string name="pref_alarm_delay_time_key" translatable="false">pref_delay_time</string>
+    <string name="pref_alarm_delay_time_title">Alarm delay time</string>
+    <string name="pref_alarm_delay_time_dialog_title">Set alarm delay time</string>
+    <string name="pref_alarm_delay_time_default" translatable="false">1</string>
+
+    <string name="pref_alarm_volume_value_key" translatable="false">pref_volume_value</string>
+    <string name="pref_alarm_volume_value_title">Set alarm volume</string>
+    <string name="pref_alarm_volume_value_default" translatable="false">75</string>
+
+    <string name="pref_alarm_volume_in_silent_key" translatable="false">pref_volume_in_silent</string>
+    <string name="pref_alarm_volume_in_silent_title">Play sound in silent mode</string>
+
+    <string name="pref_alarm_shake_times_number_key" translatable="false">pref_shake_times</string>
+    <string name="pref_alarm_shake_times_number_title">Shakes to dismiss alarm</string>
+    <plurals name="pref_alarm_shake_times_number_summary">
+        <item quantity="one">%d time</item>
+        <item quantity="other">%d times</item>
+    </plurals>
+    <string name="pref_alarm_shake_times_number_default" translatable="false">10</string>
+
+    <string name="pref_alarm_seconds_hold_button_key" translatable="false">pref_seconds_hold_button</string>
+    <string name="pref_alarm_seconds_hold_button_title">Time to hold button to turn off alarm</string>
+    <plurals name="pref_alarm_seconds_hold_button_summary">
+        <item quantity="one">%d second</item>
+        <item quantity="other">%d seconds</item>
+    </plurals>
+    <string name="pref_alarm_seconds_hold_button_default" translatable="false">5</string>
+
+    <string name="activated_alarm_delay_button">Later</string>
+    <string name="activated_alarm_turn_off_button">Turn off</string>
+    <string name="activated_alarm_delay_or_turn_off_button">Later/Turn off</string>
+    <plurals name="activated_alarm_hold_button_tooltip">
+        <item quantity="one">Hold button for %d second</item>
+        <item quantity="other">Hold button for %d seconds</item>
+    </plurals>
+
+    <string name="alarm_setup_time_label">Time of alarm</string>
+    <string name="alarm_setup_vibrate_text_view">Vibrate</string>
+    <string name="alarm_setup_turn_off_mode_text_view">Turn off mode</string>
+    <string name="alarm_setup_turn_off_dialog_title">Pick alarm cancel mode</string>
+    <string name="alarm_setup_turn_off_dialog_button_press_mode">Press button</string>
+    <string name="alarm_setup_turn_off_dialog_button_hold_mode">Hold button</string>
+    <string name="alarm_setup_turn_off_dialog_shake_device_mode">Shake device</string>
+    <string name="alarm_setup_ringtone_dialog_title">Set ringtone for alarm</string>
+    <string name="alarm_setup_ringtone_text_view">Ringtone</string>
+    <string name="alarm_setup_name_hint_edit_text">Name of your alarm</string>
+    <string name="alarm_setup_days_monday_text_view">MON</string>
+    <string name="alarm_setup_days_tuesday_text_view">TUE</string>
+    <string name="alarm_setup_days_wednesday_text_view">WED</string>
+    <string name="alarm_setup_days_thursday_text_view">THU</string>
+    <string name="alarm_setup_days_friday_text_view">FRI</string>
+    <string name="alarm_setup_days_saturday_text_view">SAT</string>
+    <string name="alarm_setup_days_sunday_text_view">SUN</string>
+    <string name="alarm_setup_save_button">Save</string>
+    <string name="alarm_setup_delete_button">Delete</string>
+    <string name="alarm_setup_delete_dialog_title">Delete alarm?</string>
+
+    <string name="confirm_deletion_button">Delete</string>
+    <string name="cancel_deletion_button">Cancel</string>
+
+    <string name="menu_add_alarm_button">Add</string>
+    <string name="menu_settings_button">Settings</string>
+
+    <plurals name="activated_alarm_delay_toast">
+        <item quantity="one">Delayed for %d minute</item>
+        <item quantity="other">Delayed for %d minutes</item>
+    </plurals>
+    <string name="activated_alarm_turn_off_toast">Turned off</string>
+    <plurals name="activated_alarm_shake_device_text">
+        <item quantity="one">Shake device %d time</item>
+        <item quantity="other">Shake device %d times</item>
+    </plurals>
+
+    <string name="notification_default_title">Alarm</string>
+
+    <string name="activity_settings_title">Settings</string>
+
+    <string name="alarm_days_monday" translatable="false">monday</string>
+    <string name="alarm_days_tuesday" translatable="false">tuesday</string>
+    <string name="alarm_days_wednesday" translatable="false">wednesday</string>
+    <string name="alarm_days_thursday" translatable="false">thursday</string>
+    <string name="alarm_days_friday" translatable="false">friday</string>
+    <string name="alarm_days_saturday" translatable="false">saturday</string>
+    <string name="alarm_days_sunday" translatable="false">sunday</string>
+
+    <string name="alarm_turn_off_mode_press_button" translatable="false">buttonPress</string>
+    <string name="alarm_turn_off_mode_hold_button" translatable="false">buttonHold</string>
+    <string name="alarm_turn_off_mode_shake_device" translatable="false">shakeDevice</string>
+
+    <string name="alarm_remaining_time_toast">"Alarm will ring in "</string>
+    <string name="alarm_setup_single_alarm">Single alarm</string>
+    <plurals name="alarm_remaining_time_toast_days">
+        <item quantity="one">"%d day "</item>
+        <item quantity="other">"%d days "</item>
+    </plurals>
+    <plurals name="alarm_remaining_time_toast_hours">
+        <item quantity="one">"%d hour "</item>
+        <item quantity="other">"%d hours "</item>
+    </plurals>
+    <plurals name="alarm_remaining_time_toast_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+
+    <string name="alarm_list_single_alarm_days_description">Single alarm</string>
+    <string name="all_alarms_not_found_text">No alarms set. You can add one using button above!</string>
+
 </resources>

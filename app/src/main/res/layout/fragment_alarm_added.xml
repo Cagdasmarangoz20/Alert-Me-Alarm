@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:id="@+id/alarm_setup_time">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/alarm_setup_time_label"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/alarm_setup_time_text_summary"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <View style="@style/Divider"/>
+
+
+
+
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/alarm_setup_name"
+            android:hint="@string/alarm_setup_name_hint_edit_text"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="16sp"
+            android:background="@android:color/transparent"
+            android:lines="1"
+            android:inputType="text"/>
+
+        <View style="@style/Divider"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alarm_setup_single_alarm"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/alarm_setup_single_alarm_checkbox"
+                android:checked="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/alarm_setup_days_layout"
+            android:weightSum="7">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/alarm_setup_days_monday"
+                android:gravity="center"
+                android:text="@string/alarm_setup_days_monday_text_view"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/alarm_setup_days_tuesday"
+                android:gravity="center"
+                android:text="@string/alarm_setup_days_tuesday_text_view"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/alarm_setup_days_wednesday"
+                android:gravity="center"
+                android:text="@string/alarm_setup_days_wednesday_text_view"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/alarm_setup_days_thursday"
+                android:gravity="center"
+                android:text="@string/alarm_setup_days_thursday_text_view"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/alarm_setup_days_friday"
+                android:gravity="center"
+                android:text="@string/alarm_setup_days_friday_text_view"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/alarm_setup_days_saturday"
+                android:gravity="center"
+                android:text="@string/alarm_setup_days_saturday_text_view"
+                android:enabled="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/alarm_setup_days_sunday"
+                android:gravity="center"
+                android:text="@string/alarm_setup_days_sunday_text_view"
+                android:enabled="false"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            style="?android:buttonBarStyle">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alarm_setup_delete_button"
+                android:visibility="gone"
+                android:id="@+id/alarm_setup_delete_button"
+                style="?android:buttonBarButtonStyle"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alarm_setup_save_button"
+                android:id="@+id/alarm_setup_save_button"
+                style="?android:buttonBarButtonStyle"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

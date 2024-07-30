@@ -17,10 +17,10 @@ interface AlarmDao {
     suspend fun deleteAlarm(alarmData: AlarmData)
 
     @Query("SELECT * FROM AlarmData ORDER BY title ASC")
-   fun getAlarmList(): List<AlarmData>
+   suspend fun getAlarmList(): List<AlarmData>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(alarmData: AlarmData)
+  suspend fun insert(alarmData: AlarmData)
 
 
 
